@@ -1,0 +1,86 @@
+﻿<div class="container" style="margin: 4% 0 0 0">
+    <div class="row">
+        <center>
+            <div class="col-lg-8 col-lg-offset-2 jumbotron" style="margin-top: 30px;">
+                <form action="/" method="post">
+                    <a>Opciones</a>
+                    <div id="hidden" class="Hidden1" style="display:none;">
+                        <div class="form-group" id="focusedInput" style="border-color:black;">
+                            <label id="Select">Tipo de Busqueda:</label>
+                            <select name="Opciones" class="form-control  ">
+                                <option selected>Elegir... </option>
+                                <option value="Carnet">Carnet</option>
+                                <option value="Nombre">Nombre</option>
+                                <option value="Materia">Materia</option>
+                                <option value="Promedio">Promedio</option>
+                            </select>
+                        </div>
+
+                        <label class="radio-inline Rb"><input type="radio" name="rd" value="1" checked />Carnet</label>
+
+                        <label class="radio-inline Rb"><input type="radio" name="rd" value="2" checked />Nombre</label>
+
+                        <label class="radio-inline Rb"><input type="radio" name="rd" value="3" checked />Materia</label>
+
+                        <label class="radio-inline Rb"><input type="radio" name="rd" value="4" checked />Promedio</label>
+                        <div class="form-group">
+                            <input id="Text1" type="text" name="txtbuscar" value="" class="form-control" placeholder="Busqueda segun su opcion seleccionada" autocomplete="off" />
+
+                        </div>
+                        <input id="Submit1" type="submit" value="BUSCAR" class="btn btn-success btn-lg" name="btn" />
+                        <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                 </form>
+</div>
+        </center>
+        <div class="col-lg-8 col-lg-offset-2 jumbotron">
+            <p class="text-center">Resultado</p>
+            <table class="table table-striped" id="Tbl">
+                <thead>
+                    <tr>
+                        <th>Carnet</th>
+                        <th>Nombre</th>
+                        <th>Materia</th>
+                        <th>Promedio</th>
+                        <th>Estado</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.Carnet</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.Materia</td>
+                            <td>@item.Promedio</td>
+                            <td>Pendiente</td>
+                            <td>@item.Fecha</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+@section mostrarOcultar{    
+<script type="text/javascript">
+    $(document).ready(
+        function () {
+            $("a").click(  
+                function () {
+                    $(".Hidden1").toggle(); 
+                }
+             );
+         }
+    );
+    </script>
+
+
+
+}
+
+
+
